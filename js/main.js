@@ -16,6 +16,26 @@
     });
   }
 
+  var watermark = document.getElementById('heroWatermark');
+  var heroSection = document.querySelector('.hero');
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (watermark && heroSection && !reduceMotion) {
+    var ticking = false;
+    var updateParallax = function () {
+      var rect = heroSection.getBoundingClientRect();
+      var offset = rect.top * -0.08;
+      watermark.style.transform = 'translate3d(0, calc(-50% + ' + offset + 'px), 0)';
+      ticking = false;
+    };
+    window.addEventListener('scroll', function () {
+      if (!ticking) {
+        window.requestAnimationFrame(updateParallax);
+        ticking = true;
+      }
+    }, { passive: true });
+    updateParallax();
+  }
+
   var yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
