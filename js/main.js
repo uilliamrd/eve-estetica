@@ -17,19 +17,23 @@
   }
 
   if (header) {
-    var setScrolledState = function () {
-      header.classList.toggle('is-scrolled', window.scrollY > 24);
-    };
-    window.addEventListener('scroll', setScrolledState, { passive: true });
-    setScrolledState();
-  }
+    var lastScrollY = window.scrollY;
+    var hideThreshold = 120;
+    var updateHeaderScrollState = function () {
+      var currentScrollY = window.scrollY;
+      header.classList.toggle('is-scrolled', currentScrollY > 24);
 
-  if (header) {
-    var setScrolledState = function () {
-      header.classList.toggle('is-scrolled', window.scrollY > 24);
+      if (header.classList.contains('is-open')) {
+        header.classList.remove('is-hidden');
+      } else if (currentScrollY > lastScrollY && currentScrollY > hideThreshold) {
+        header.classList.add('is-hidden');
+      } else if (currentScrollY < lastScrollY) {
+        header.classList.remove('is-hidden');
+      }
+      lastScrollY = currentScrollY;
     };
-    window.addEventListener('scroll', setScrolledState, { passive: true });
-    setScrolledState();
+    window.addEventListener('scroll', updateHeaderScrollState, { passive: true });
+    updateHeaderScrollState();
   }
 
   var yearEl = document.getElementById('year');
