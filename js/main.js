@@ -24,24 +24,12 @@
     setScrolledState();
   }
 
-  var medallionRing = document.getElementById('medallionRing');
-  var heroSection = document.querySelector('.hero');
-  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (medallionRing && heroSection && !reduceMotion) {
-    var ticking = false;
-    var updateSpin = function () {
-      var rect = heroSection.getBoundingClientRect();
-      var angle = rect.top * -0.05;
-      medallionRing.setAttribute('transform', 'rotate(' + angle + ' 200 200)');
-      ticking = false;
+  if (header) {
+    var setScrolledState = function () {
+      header.classList.toggle('is-scrolled', window.scrollY > 24);
     };
-    window.addEventListener('scroll', function () {
-      if (!ticking) {
-        window.requestAnimationFrame(updateSpin);
-        ticking = true;
-      }
-    }, { passive: true });
-    updateSpin();
+    window.addEventListener('scroll', setScrolledState, { passive: true });
+    setScrolledState();
   }
 
   var yearEl = document.getElementById('year');
