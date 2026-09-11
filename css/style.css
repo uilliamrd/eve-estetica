@@ -139,7 +139,7 @@ h1 em { font-style: italic; color: var(--gold); }
   padding-bottom: 12px;
 }
 .brand { color: inherit; display: flex; align-items: center; }
-.brand-mark { width: 54px; height: 54px; color: var(--gold); }
+.brand-mark { width: 76px; height: 76px; color: var(--gold); }
 .brand-script {
   font-family: var(--font-script);
   font-size: 34px;
@@ -396,7 +396,7 @@ h1 em { font-style: italic; color: var(--gold); }
   text-align: center;
 }
 .footer-inner { display: flex; flex-direction: column; align-items: center; gap: 18px; }
-.brand-mark--footer { color: var(--gold-light); width: 60px; height: 60px; }
+.brand-mark--footer { color: var(--gold-light); width: 80px; height: 80px; }
 .brand-mark--footer .brand-word { fill: var(--cream); }
 .footer-address { font-size: 0.85rem; font-weight: 300; line-height: 1.8; }
 .footer-address a { color: var(--gold-light); }
