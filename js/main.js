@@ -16,6 +16,14 @@
     });
   }
 
+  if (header) {
+    var setScrolledState = function () {
+      header.classList.toggle('is-scrolled', window.scrollY > 24);
+    };
+    window.addEventListener('scroll', setScrolledState, { passive: true });
+    setScrolledState();
+  }
+
   var watermark = document.getElementById('heroWatermark');
   var heroSection = document.querySelector('.hero');
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;

@@ -19,7 +19,7 @@
 
 /* ===================== Reset ===================== */
 * { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; font-size: 18px; }
+html { scroll-behavior: smooth; font-size: 18px; scroll-padding-top: 96px; }
 body {
   font-family: var(--font-sans);
   color: var(--ink);
@@ -91,8 +91,8 @@ h1 em { font-style: italic; color: var(--gold); }
   letter-spacing: 0.14em;
   text-transform: uppercase;
   font-weight: 500;
-  padding: 14px 28px;
-  border-radius: 2px;
+  padding: 14px 30px;
+  border-radius: 999px;
   border: 1px solid transparent;
   transition: all 0.25s ease;
   text-align: center;
@@ -107,23 +107,29 @@ h1 em { font-style: italic; color: var(--gold); }
   color: var(--dark);
 }
 .btn-outline:hover { background: var(--dark); color: var(--cream); }
-.btn-ghost {
-  color: var(--dark);
-  font-size: 0.82rem;
-  padding: 10px 4px;
-  border-bottom: 1px solid transparent;
-}
-.btn-ghost:hover { border-color: var(--gold); }
 .btn-lg { padding: 16px 34px; font-size: 0.9rem; }
 
 /* ===================== Header ===================== */
 .site-header {
-  position: sticky;
-  top: 0;
+  position: fixed;
+  top: 0; left: 0; right: 0;
   z-index: 100;
-  background: rgba(247, 241, 230, 0.9);
+  color: var(--cream);
+  background: transparent;
+  border-bottom: 1px solid transparent;
+  backdrop-filter: none;
+  transition: background 0.35s ease, border-color 0.35s ease, color 0.35s ease, box-shadow 0.35s ease;
+}
+.site-header.is-scrolled {
+  color: var(--ink);
+  background: rgba(247, 241, 230, 0.98);
   backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(184, 147, 95, 0.25);
+  border-bottom-color: rgba(184, 147, 95, 0.25);
+  box-shadow: 0 4px 24px rgba(23, 20, 15, 0.06);
+}
+.site-header.is-open:not(.is-scrolled) {
+  background: rgba(23, 20, 15, 0.97);
+  backdrop-filter: blur(10px);
 }
 .header-inner {
   display: flex;
@@ -133,7 +139,7 @@ h1 em { font-style: italic; color: var(--gold); }
   padding-top: 12px;
   padding-bottom: 12px;
 }
-.brand { color: var(--dark); display: flex; align-items: center; }
+.brand { color: inherit; display: flex; align-items: center; }
 .brand-mark { width: 54px; height: 54px; color: var(--gold); }
 .brand-script {
   font-family: var(--font-script);
@@ -144,14 +150,14 @@ h1 em { font-style: italic; color: var(--gold); }
   font-family: var(--font-sans);
   font-size: 10px;
   letter-spacing: 0.22em;
-  fill: var(--dark);
+  fill: currentColor;
 }
 .main-nav { display: flex; gap: 32px; }
 .main-nav a {
   font-size: 0.82rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--ink);
+  color: inherit;
   position: relative;
   padding-bottom: 4px;
 }
@@ -168,7 +174,7 @@ h1 em { font-style: italic; color: var(--gold); }
   padding: 8px;
 }
 .nav-toggle span {
-  width: 24px; height: 1.5px; background: var(--dark);
+  width: 24px; height: 1.5px; background: currentColor;
   transition: all 0.25s ease;
 }
 
