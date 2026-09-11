@@ -24,24 +24,24 @@
     setScrolledState();
   }
 
-  var watermark = document.getElementById('heroWatermark');
+  var medallionRing = document.getElementById('medallionRing');
   var heroSection = document.querySelector('.hero');
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (watermark && heroSection && !reduceMotion) {
+  if (medallionRing && heroSection && !reduceMotion) {
     var ticking = false;
-    var updateParallax = function () {
+    var updateSpin = function () {
       var rect = heroSection.getBoundingClientRect();
-      var offset = rect.top * -0.08;
-      watermark.style.transform = 'translate3d(0, calc(-50% + ' + offset + 'px), 0)';
+      var angle = rect.top * -0.05;
+      medallionRing.setAttribute('transform', 'rotate(' + angle + ' 200 200)');
       ticking = false;
     };
     window.addEventListener('scroll', function () {
       if (!ticking) {
-        window.requestAnimationFrame(updateParallax);
+        window.requestAnimationFrame(updateSpin);
         ticking = true;
       }
     }, { passive: true });
-    updateParallax();
+    updateSpin();
   }
 
   var yearEl = document.getElementById('year');
