@@ -56,10 +56,13 @@ cursivo "Éve" e wordmark "ESTÉTICA" abaixo.
 - [ ] Confirmar se o tier **Institucional** é de fato o contratado.
 - [ ] Receber arquivo vetorial original do logo (o SVG atual é uma
       recriação fiel à descrição, mas o ideal é usar a arte oficial).
-- [ ] Fotos em alta resolução dos procedimentos/ambiente (as disponíveis
-      eram capturas de tela do Instagram/Google). Até lá, o hero e a seção
-      "Para quem é" usam tratamento tipográfico sobre fundo escuro
-      (consistente com o moodboard da marca) no lugar de fotos.
+- [ ] `assets/hero.jpg` (foto do banner principal) foi enviada pela cliente
+      no chat — **confirmar que há licença de uso comercial** para essa
+      imagem (banco de imagens pago, ou direito de uso próprio) antes de
+      considerar o site pronto para publicação definitiva.
+- [ ] Fotos em alta resolução dos demais procedimentos/ambiente (as
+      disponíveis eram capturas de tela do Instagram/Google) — ainda
+      pendentes para outras seções além do hero.
 - [ ] Confirmar prazo de entrega.
 - [ ] Validar textos institucionais (About e descrições de serviço foram
       escritos do zero a partir do briefing, já que o conteúdo do Instagram
